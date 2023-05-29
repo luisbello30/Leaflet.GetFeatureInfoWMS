@@ -1,1 +1,1 @@
-# Leaflet.BetterWMS
+# Leaflet.GetFeatureInfoWMS
