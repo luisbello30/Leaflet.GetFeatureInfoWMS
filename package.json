@@ -1,0 +1,30 @@
+{
+  "name": "leaflet-getfeatureinfo-wms",
+  "version": "0.0.1",
+  "description": "You can use WMS request \"GetFeatureInfo\" data about a coordinate of the leaflet map image.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luisbello30/Leaflet.GetFeatureInfoWMS.git"
+  },
+  "keywords": [
+    "leaflet",
+    "wms",
+    "map",
+    "data",
+    "map",
+    "plugins"
+  ],
+  "peerDependencies": {
+    "leaflet": "^1.0.0"
+  },
+  "author": "Luis Bello <luisbello30@gmail.com> (https://about.me/luisbello30)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/luisbello30/Leaflet.GetFeatureInfoWMS/issues"
+  },
+  "homepage": "https://github.com/luisbello30/Leaflet.GetFeatureInfoWMS#readme"
+}
