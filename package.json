@@ -1,7 +1,7 @@
 {
   "name": "leaflet-getfeatureinfo-wms",
   "version": "1.0.0",
-  "description": "You can use WMS request \"GetFeatureInfo\" data about a coordinate of the leaflet map image.",
+  "description": "You can create a URL with WMS request data GetFeatureInfo about a map image coordinate and get it from a callback",
   "source": "src/Leaflet.GetFeatureInfoWMS.js",
   "main": "dist/Leaflet.GetFeatureInfoWMS.cjs.js",
   "module": "dist/Leaflet.GetFeatureInfoWMS.esm.js",

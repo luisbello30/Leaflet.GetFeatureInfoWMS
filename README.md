@@ -1,7 +1,6 @@
 # Leaflet.GetFeatureInfoWMS
 
-You can use WMS request "GetFeatureInfo" data about a coordinate of the leaflet map image
-
+You can create a URL with WMS request data "GetFeatureInfo" about a map image coordinate and get it from a callback
 ## Requirement
 
 * [Lealfet](https://leafletjs.com/)
@@ -17,13 +16,13 @@ Test on leaflet 1.9.2
 ## Installing
 
 ```bash
-npm install GetFeatureInfoWMS
+npm install leaflet-getfeatureinfo-wms
 ```
 
 or using Yarn
 
 ```bash
-yarn add GetFeatureInfoWMS
+yarn add leaflet-getfeatureinfo-wms
 ```
 
 ## Getting started
