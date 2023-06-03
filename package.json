@@ -1,11 +1,22 @@
 {
   "name": "leaflet-getfeatureinfo-wms",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "You can use WMS request \"GetFeatureInfo\" data about a coordinate of the leaflet map image.",
-  "main": "index.js",
+  "source": "src/Leaflet.GetFeatureInfoWMS.js",
+  "main": "dist/Leaflet.GetFeatureInfoWMS.cjs.js",
+  "module": "dist/Leaflet.GetFeatureInfoWMS.esm.js",
+  "browser": "dist/Leaflet.GetFeatureInfoWMS.umd.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "",
+    "lint": "eslint . --ext js,mjs,cjs",
+    "build": "rollup --config",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint"
   },
+  "files": [
+    "dist/",
+    "src/"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/luisbello30/Leaflet.GetFeatureInfoWMS.git"
@@ -14,17 +25,24 @@
     "leaflet",
     "wms",
     "map",
-    "data",
-    "map",
-    "plugins"
+    "map data",
+    "plugins",
+    "leaflet-plugins"
   ],
   "peerDependencies": {
-    "leaflet": "^1.0.0"
+    "leaflet": "^1.7.1"
   },
   "author": "Luis Bello <luisbello30@gmail.com> (https://about.me/luisbello30)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/luisbello30/Leaflet.GetFeatureInfoWMS/issues"
   },
-  "homepage": "https://github.com/luisbello30/Leaflet.GetFeatureInfoWMS#readme"
+  "homepage": "https://github.com/luisbello30/Leaflet.GetFeatureInfoWMS#readme",
+  "devDependencies": {
+    "@rollup/plugin-terser": "^0.4.3",
+    "eslint": "^8.41.0",
+    "eslint-config-mourner": "^3.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "rollup": "^2.35.0"
+  }
 }
