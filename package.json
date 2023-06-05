@@ -1,11 +1,11 @@
 {
-  "name": "leaflet-getfeatureinfo-wms",
+  "name": "leaflet-infowms",
   "version": "1.0.0",
   "description": "You can create a URL with WMS request data GetFeatureInfo about a map image coordinate and get it from a callback",
-  "source": "src/Leaflet.GetFeatureInfoWMS.js",
-  "main": "dist/Leaflet.GetFeatureInfoWMS.cjs.js",
-  "module": "dist/Leaflet.GetFeatureInfoWMS.esm.js",
-  "browser": "dist/Leaflet.GetFeatureInfoWMS.umd.js",
+  "source": "src/Leaflet.InfoWMS.js",
+  "main": "dist/Leaflet.InfoWMS.cjs.js",
+  "module": "dist/Leaflet.InfoWMS.esm.js",
+  "browser": "dist/Leaflet.InfoWMS.umd.js",
   "scripts": {
     "test": "",
     "lint": "eslint . --ext js,mjs,cjs",
@@ -19,7 +19,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/luisbello30/Leaflet.GetFeatureInfoWMS.git"
+    "url": "git+https://github.com/luisbello30/Leaflet.InfoWMS.git"
   },
   "keywords": [
     "leaflet",
@@ -35,9 +35,9 @@
   "author": "Luis Bello <luisbello30@gmail.com> (https://about.me/luisbello30)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/luisbello30/Leaflet.GetFeatureInfoWMS/issues"
+    "url": "https://github.com/luisbello30/Leaflet.InfoWMS/issues"
   },
-  "homepage": "https://github.com/luisbello30/Leaflet.GetFeatureInfoWMS#readme",
+  "homepage": "https://github.com/luisbello30/Leaflet.InfoWMS#readme",
   "devDependencies": {
     "@rollup/plugin-terser": "^0.4.3",
     "eslint": "^8.41.0",

@@ -1,4 +1,4 @@
-L.TileLayer.GetFeatureInfoWMS = L.TileLayer.WMS.extend({
+L.TileLayer.InfoWMS = L.TileLayer.WMS.extend({
 
     getFeatureParam: {
         // eslint-disable-next-line camelcase
@@ -75,6 +75,6 @@ L.TileLayer.GetFeatureInfoWMS = L.TileLayer.WMS.extend({
     }
 });
 
-L.tileLayer.getFeatureInfoWMS = function (url, options) {
-    return new L.TileLayer.GetFeatureInfoWMS(url, options);
+L.tileLayer.infoWMS = function (url, options) {
+    return new L.TileLayer.InfoWMS(url, options);
 };

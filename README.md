@@ -1,4 +1,4 @@
-# Leaflet.GetFeatureInfoWMS
+# Leaflet.InfoWMS
 
 You can create a URL with WMS request data "GetFeatureInfo" about a map image coordinate and get it from a callback
 ## Requirement
@@ -7,22 +7,22 @@ You can create a URL with WMS request data "GetFeatureInfo" about a map image co
 
 ## Leaflet Versión
 
-Test on leaflet 1.9.2
+Test on leaflet 1.7.1
 
 ## Demo
 
-[GetFeatureInfoWMS](https://luisbello30.github.io/Leaflet.GetFeatureInfoWMS)
+[Demo](https://luisbello30.github.io/Leaflet.InfoWMS)
 
 ## Installing
 
 ```bash
-npm install leaflet-getfeatureinfo-wms
+npm install leaflet-infowms
 ```
 
 or using Yarn
 
 ```bash
-yarn add leaflet-getfeatureinfo-wms
+yarn add leaflet-infowms
 ```
 
 ## Getting started
