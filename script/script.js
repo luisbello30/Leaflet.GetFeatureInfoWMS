@@ -14,7 +14,7 @@ const callBack = async function (url) {
         });
 };
 
-L.tileLayer.getFeatureInfoWMS('https://public-mapservice.lf.goteborg.se/geoserver/LF_Externwebb/wms?', {
+L.tileLayer.infoWMS('https://public-mapservice.lf.goteborg.se/geoserver/LF_Externwebb/wms?', {
     layers: 'Utrustning',
     format: 'image/png',
     transparent: true,

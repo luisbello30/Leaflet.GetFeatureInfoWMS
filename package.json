@@ -1,5 +1,5 @@
 {
-  "name": "leaflet.getfeatureinfowms",
+  "name": "leaflet-info-wms-example",
   "version": "1.0.0",
   "description": "",
   "main": ".eslintrc.js",
@@ -11,6 +11,6 @@
   "license": "ISC",
   "dependencies": {
     "leaflet": "^1.9.4",
-    "leaflet-getfeatureinfo-wms": "^1.0.0"
+    "leaflet-info-wms": "^1.0.0"
   }
 }
