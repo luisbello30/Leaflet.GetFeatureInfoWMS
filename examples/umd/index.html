@@ -14,8 +14,8 @@
     <div id="map1"></div>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
         integrity="sha256-yDc0eil8GjWFKqN1OSzHSVCiuGghTosZCcRje4tj7iQ=" crossorigin=""></script>
-    <!-- <script src="https://unpkg.com/leaflet-infowms@1.0.1/dist/Leaflet.InfoWMS.umd.js"></script> -->
-    <script src="../../dist/Leaflet.InfoWMS.umd.js"></script>
+    <script src="https://unpkg.com/leaflet-infowms@1.0.14/dist/Leaflet.InfoWMS.umd.js"
+        integrity="sha384-LIhALk8kBIjN61j2FR3RJoWl87j0DQCQTyYrafMuFsOeN62lFykdMuUdJLUJcK21" crossorigin=""></script>
     <script>
         const map = L.map('map1').setView([57.76, 11.96], 12);
 
@@ -25,7 +25,6 @@
                 ' <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
         }).addTo(map);
 
-        console.log(L)
         const callBack = async function (url) {
             await fetch(url)
                 .then(response => response.json())
