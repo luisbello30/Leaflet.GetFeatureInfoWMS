@@ -18,19 +18,21 @@ export default [{
     input: pkg.source,
     output: [
         {
-            file: pkg.browser,
+            file: pkg.main,
             format: 'umd',
             name: 'L.TileLayer.InfoWMS',
-            globals: {leaflet: 'L'},
+            banner,
+            sourcemap: true,
+            esModule: false,
+            globals: { leaflet: 'L' },
+        },
+        {
+            file: pkg.module,
+            format: 'es',
             banner,
             sourcemap: true,
         },
-        {
-            file: pkg.main, format: 'cjs', banner, sourcemap: true,
-        },
-        {
-            file: pkg.module, format: 'es', banner, sourcemap: true,
-        },
     ],
+    external: ['leaflet'],
     plugins: [terser()]
 }];

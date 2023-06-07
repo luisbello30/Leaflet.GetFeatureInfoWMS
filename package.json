@@ -1,11 +1,10 @@
 {
   "name": "leaflet-infowms",
-  "version": "1.0.1",
+  "version": "1.0.12",
   "description": "You can create a URL with WMS request data GetFeatureInfo about a map image coordinate and get it from a callback",
   "source": "src/Leaflet.InfoWMS.js",
-  "main": "dist/Leaflet.InfoWMS.cjs.js",
+  "main": "dist/Leaflet.InfoWMS.umd.js",
   "module": "dist/Leaflet.InfoWMS.esm.js",
-  "browser": "dist/Leaflet.InfoWMS.umd.js",
   "scripts": {
     "test": "",
     "lint": "eslint . --ext js,mjs,cjs",

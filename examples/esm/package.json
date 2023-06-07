@@ -1,0 +1,19 @@
+{
+  "name": "info-wms-prueba",
+  "version": "1.0.0",
+  "description": "",
+  "source": "index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "author": "Luis Bello <luisbello30@gmail.com> (https://about.me/luisbello30)",
+  "license": "MIT",
+  "dependencies": {
+    "leaflet": "^1.7.1",
+    "leaflet-infowms": "^1.0.12"
+  },
+  "devDependencies": {
+    "parcel": "^2.9.1"
+  }
+}

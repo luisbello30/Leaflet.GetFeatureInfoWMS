@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InfoWMS Example umd</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha256-BPfK9M5v34c2XP6p0cxVz1mUQLst0gTLk0mlc7kuodA=" crossorigin="" />
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div id="map1"></div>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha256-yDc0eil8GjWFKqN1OSzHSVCiuGghTosZCcRje4tj7iQ=" crossorigin=""></script>
+    <!-- <script src="https://unpkg.com/leaflet-infowms@1.0.1/dist/Leaflet.InfoWMS.umd.js"></script> -->
+    <script src="../../dist/Leaflet.InfoWMS.umd.js"></script>
+    <script>
+        const map = L.map('map1').setView([57.76, 11.96], 12);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+            attribution:
+                ' <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        }).addTo(map);
+
+        console.log(L)
+        const callBack = async function (url) {
+            await fetch(url)
+                .then(response => response.json())
+                .then((response) => {
+                    console.log(response);
+                });
+        };
+
+        L.tileLayer.infoWMS('https://public-mapservice.lf.goteborg.se/geoserver/LF_Externwebb/wms?', {
+            layers: 'Utrustning',
+            format: 'image/png',
+            transparent: true,
+            attribution: '<a href="https://goteborg.se/">Public Geoserver LF Goteborg City</a>',
+            // eslint-disable-next-line camelcase
+            feature_count: 2,
+            callBack
+        }).addTo(map);
+    </script>
+</body>
+<!--
+callBack
+
+URL: https://public-mapservice.lf.goteborg.se/geoserver/LF_Externwebb/wms?&service=WMS&request=GetFeatureInfo&layers=Utrustning&styles=&format=image%2Fpng&transparent=true&version=1.1.1&width=800&height=600&srs=EPSG%3A4326&feature_count=2&info_format=application%2Fjson&attribution=Public%20Geoserver%20LF%20Goteborg%20City&query_layers=Utrustning&bbox=11.822662353515625%2C57.70506439429962%2C12.097320556640627%2C57.814955058421184&x=459&y=34
+JSON:
+
+{
+    "type": "FeatureCollection",
+        "features": [
+            {
+                "type": "Feature",
+                "id": "Utrustning.2505",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        11.97862382,
+                        57.80930594
+                    ]
+                },
+                "geometry_name": "the_geom",
+                "properties": {
+                    "Arealskiss": "79713",
+                    "Ytnummer": 0,
+                    "Kund": "LF",
+                    "Enhet": "407340",
+                    "Skötselkat": "Egen regi",
+                    "Typ": "",
+                    "Antal": 1,
+                    "Städning": "",
+                    "Marktyp_1": "Dagvattenbrunn",
+                    "PON_distri": "3. Norra Hisingen",
+                    "Uppdaterad": "",
+                    "Kommentar": "Från Utrustningsskiktet",
+                    "MI_PRINX": 2848
+                }
+            },
+            {
+                "type": "Feature",
+                "id": "Utrustning.2506",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                        11.9779107,
+                        57.80931955
+                    ]
+                },
+                "geometry_name": "the_geom",
+                "properties": {
+                    "Arealskiss": "79713",
+                    "Ytnummer": 0,
+                    "Kund": "LF",
+                    "Enhet": "407340",
+                    "Skötselkat": "Egen regi",
+                    "Typ": "",
+                    "Antal": 1,
+                    "Städning": "",
+                    "Marktyp_1": "Dagvattenbrunn",
+                    "PON_distri": "3. Norra Hisingen",
+                    "Uppdaterad": "",
+                    "Kommentar": "Från Utrustningsskiktet",
+                    "MI_PRINX": 2849
+                }
+            }
+        ],
+            "totalFeatures": "unknown",
+                "numberReturned": 2,
+                    "timeStamp": "2023-06-07T14:49:33.676Z",
+                        "crs": {
+        "type": "name",
+            "properties": {
+            "name": "urn:ogc:def:crs:EPSG::4326"
+        }
+    }
+ -->
+
+</html>

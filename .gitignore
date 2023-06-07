@@ -1,3 +1,8 @@
 /node_modules
 /dist
 /.vscode
+
+/examples/esm/node_modules
+/examples/esm/.parcel-cache
+/examples/esm/dist
+/examples/esm/package-lock.json

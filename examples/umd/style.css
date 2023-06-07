@@ -1,0 +1,8 @@
+body {
+    overflow: hidden;
+}
+
+#map1 {
+    height: 80vh;
+    overflow: hidden;
+}

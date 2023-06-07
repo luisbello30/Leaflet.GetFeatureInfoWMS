@@ -1,5 +1,6 @@
-L.TileLayer.InfoWMS = L.TileLayer.WMS.extend({
+import { TileLayer, tileLayer, Util, Point } from 'leaflet';
 
+const TileLayerInfoWMS = TileLayer.WMS.extend({
     getFeatureParam: {
         // eslint-disable-next-line camelcase
         feature_count: 1,
@@ -29,24 +30,23 @@ L.TileLayer.InfoWMS = L.TileLayer.WMS.extend({
             this.getFeatureInfo.propertyName = options.propertyName;
         }
 
-        L.Util.setOptions(this, this.getFeatureParam);
-        L.TileLayer.WMS.prototype.initialize.call(this, url, options);
-
+        Util.setOptions(this, this.getFeatureParam);
+        TileLayer.WMS.prototype.initialize.call(this, url, options);
     },
 
     onAdd(map) {
-        L.TileLayer.WMS.prototype.onAdd.call(this, map);
+        TileLayer.WMS.prototype.onAdd.call(this, map);
         map.on('click', this.getFeatureInfo, this);
     },
 
     onRemove(map) {
-        L.TileLayer.WMS.prototype.onRemove.call(this, map);
+        TileLayer.WMS.prototype.onRemove.call(this, map);
         map.off('click', this.getFeatureInfo, this);
     },
 
     getFeatureInfo(evt) {
         const point = this._map.latLngToContainerPoint(evt.latlng);
-        const lPoint = L.point(point.x, point.y, true);
+        const lPoint = new Point(point.x, point.y, true);
         const size = this._map.getSize();
 
         const infoParams = {
@@ -67,14 +67,19 @@ L.TileLayer.InfoWMS = L.TileLayer.WMS.extend({
         params[params.version === '1.3.0' ? 'i' : 'x'] = lPoint.x;
         params[params.version === '1.3.0' ? 'j' : 'y'] = lPoint.y;
 
-        const url = this._url + L.Util.getParamString(params, this._url, false);
+        const url = this._url + Util.getParamString(params, this._url, false);
 
         if (this._callBack) {
             this._callBack(url);
         }
-    }
+    },
 });
 
-L.tileLayer.infoWMS = function (url, options) {
-    return new L.TileLayer.InfoWMS(url, options);
-};
+export function tileLayerInfoWMS(url, options) {
+    return new TileLayerInfoWMS(url, options);
+}
+
+TileLayer.InfoWMS = TileLayerInfoWMS;
+tileLayer.infoWMS = tileLayerInfoWMS;
+
+export { TileLayer, tileLayer };
