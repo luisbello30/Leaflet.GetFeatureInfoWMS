@@ -70,7 +70,7 @@ const TileLayerInfoWMS = TileLayer.WMS.extend({
         const url = this._url + Util.getParamString(params, this._url, false);
 
         if (this._callBack) {
-            this._callBack(url);
+            this._callBack(url, params, evt.latlng);
         }
     },
 });

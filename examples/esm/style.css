@@ -1,5 +1,10 @@
+body {
+    overflow: hidden;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 0.8em;
+}
+
 #mapa {
-    width: 800px;
-    height: 600px;
-    border: 1px solid #ccc;
+    height: 60vh;
+    overflow: hidden;
 }
