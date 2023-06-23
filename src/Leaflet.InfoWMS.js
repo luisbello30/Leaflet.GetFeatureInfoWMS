@@ -2,19 +2,12 @@ import { TileLayer, tileLayer, Util, Point } from 'leaflet';
 
 const TileLayerInfoWMS = TileLayer.WMS.extend({
     getFeatureParam: {
-        // eslint-disable-next-line camelcase
         feature_count: 1,
         srs: 'EPSG:4326',
-        // eslint-disable-next-line camelcase
         info_format: 'application/json',
     },
 
     initialize(url, options) {
-        if (options.callBack) {
-            this._callBack = options.callBack;
-            delete options.callBack;
-        }
-
         for (const i in this.getFeatureInfo) {
             if (i in options) {
                 this.getFeatureInfo[i] = options[i];
@@ -22,7 +15,6 @@ const TileLayerInfoWMS = TileLayer.WMS.extend({
         }
 
         if ('cql_filter' in options) {
-            // eslint-disable-next-line camelcase
             this.getFeatureInfo.cql_filter = options.cql_filter;
         }
 
@@ -51,7 +43,6 @@ const TileLayerInfoWMS = TileLayer.WMS.extend({
 
         const infoParams = {
             request: 'GetFeatureInfo',
-            // eslint-disable-next-line camelcase
             query_layers: this.wmsParams.layers,
             height: size.y,
             width: size.x,
@@ -69,10 +60,12 @@ const TileLayerInfoWMS = TileLayer.WMS.extend({
 
         const url = this._url + Util.getParamString(params, this._url, false);
 
-        if (this._callBack) {
-            this._callBack(url, params, evt.latlng);
-        }
-    },
+        this.fire('click', {
+            url,
+            params,
+            latlng: evt.latlng
+        });
+    }
 });
 
 export function tileLayerInfoWMS(url, options) {
