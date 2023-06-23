@@ -27,24 +27,20 @@ function tableData(data) {
     }
 }
 
-const callBack = function (url, params, point) {
-    console.log(url)
-    console.log(params)
-    console.log(point)
-    fetch(url)
+const wmsLayer = L.tileLayer.infoWMS('https://public-mapservice.lf.goteborg.se/geoserver/LF_Externwebb/wms?', {
+    layers: 'Utrustning',
+    format: 'image/png',
+    transparent: true,
+    attribution: '<a href="https://goteborg.se/">Public Geoserver LF Goteborg City</a>',
+    feature_count: 1,
+}).addTo(map);
+
+wmsLayer.on('click', function(e) {
+    console.log(e)
+    fetch(e.url)
         .then(response => response.json())
         .then((response) => {
             console.log(response);
             tableData(response.features)
         });
-};
-
-L.tileLayer.infoWMS('https://public-mapservice.lf.goteborg.se/geoserver/LF_Externwebb/wms?', {
-    layers: 'Utrustning',
-    format: 'image/png',
-    transparent: true,
-    attribution: 'Public Geoserver LF Goteborg City',
-    // eslint-disable-next-line camelcase
-    feature_count: 2,
-    callBack
-}).addTo(map);
+})
