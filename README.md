@@ -1,9 +1,10 @@
 # Leaflet.InfoWMS
 
-You can create a URL with WMS request data "GetFeatureInfo" about a map image coordinate and get it from a callback
+You can create a URL with "GetFeatureInfo" WMS request data about a map image coordinate and get it from the click event
+
 ## Requirement
 
-* [Lealfet](https://leafletjs.com/)
+-   [Lealfet](https://leafletjs.com/)
 
 ## Leaflet Versión
 
@@ -28,4 +29,3 @@ yarn add leaflet-infowms
 ## Getting started
 
 ## API reference
-
