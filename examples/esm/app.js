@@ -1,6 +1,6 @@
 import { Map } from 'leaflet';
-import { TileLayer } from 'leaflet-infowms';
 import 'leaflet/dist/leaflet.css';
+import { TileLayer } from 'leaflet-infowms';
 // import { TileLayer } from '../../dist/Leaflet.InfoWMS.esm';
 
 const map = new Map('mapa');
@@ -15,9 +15,18 @@ const nexrad = new TileLayer.InfoWMS('https://public-mapservice.lf.goteborg.se/g
     format: 'image/png',
     transparent: true,
     attribution: 'Public Geoserver LF Goteborg City',
-    feature_count: 2,
-    callBack
+    feature_count: 1
 });
+
+nexrad.on('click', function(e) {
+    console.log(e)
+    fetch(e.url)
+        .then(response => response.json())
+        .then((response) => {
+            console.log(response);
+            tableData(response.features)
+        });
+})
 
 function tableData(data) {
     let title = document.getElementById('header')
@@ -38,18 +47,6 @@ function tableData(data) {
             detail.innerHTML += `<tr>${row}</tr>`
         }
     }
-}
-
-function callBack(url, params, point) {
-    console.log(url)
-    console.log(params)
-    console.log(point)
-    fetch(url)
-        .then(response => response.json())
-        .then((response) => {
-            console.log(response);
-            tableData(response.features)
-        });
 }
 
 map.addLayer(osm)
